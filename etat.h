@@ -19,6 +19,7 @@ class Etat{
 
 };
 
+
 class E0 : public Etat{
     public:
         E0();

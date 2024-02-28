@@ -16,6 +16,9 @@ class Automate{
         Symbole* popSymbole(); 
         void popAndSupprSymbol(); 
         void accepter();
+        void exec();
+        Etat* getCurrentState();
+        Symbole * getCurrentSymbole();
 
     protected:
         stack <Etat*> statestack;

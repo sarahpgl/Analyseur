@@ -9,6 +9,7 @@ Automate :: Automate(Lexer * l){
 }
 
 
+
 void Automate :: decalage(Symbole * s, Etat * e){
     symbolstack.push(s);
     statestack.push(e);
@@ -50,4 +51,23 @@ void Automate :: popAndSupprSymbol(){
 
 void Automate :: accepter(){
     cout<<"Analyse finie."<<endl; 
+}
+
+Etat* Automate::getCurrentState() {
+	return statestack.top();
+}
+Symbole * Automate::getCurrentSymbole(){
+    return symbolstack.top();
+}
+
+void Automate::exec() {
+	
+	Symbole* s;
+    bool fin = false;
+	while(*(s=lexer->Consulter())!=FIN) {
+		
+		
+		if(this->getCurrentState()->transition(*this, s)) { fin = true ;break; }
+	}
+	cout << endl; cout << "Result : " << ((Entier*)symbolstack.top())->getValue() << endl; cout << endl; 
 }

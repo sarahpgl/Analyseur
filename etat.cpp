@@ -35,6 +35,7 @@ bool E0 :: transition(Automate & automate, Symbole * s){
             break;
 
         case EXPR : 
+           // cout<<automate.getCurrentSymbole()->Affiche();
             automate.decalage(s, new E1);
             break;
 
@@ -87,14 +88,14 @@ bool E1 :: transition(Automate & automate, Symbole * s){
 
         case ERREUR : 
             cout << endl; 
-            cout << "Erreur, nous sommes dans le case ERREUR du switch sur E0." << endl; 
+            cout << "Erreur, nous sommes dans le case ERREUR du switch sur E1." << endl; 
             cout << endl; 
             automate.dequeueAll();
             break;
 
         default :
             cout << endl; 
-            cout << "Erreur, nous sommes dans le default du switch sur E0." << endl; 
+            cout << "Erreur, nous sommes dans le default du switch sur E1." << endl; 
             cout << endl; 
     }
 
@@ -135,14 +136,14 @@ bool E2 :: transition(Automate & automate, Symbole * s){
 
         case ERREUR : 
             cout << endl; 
-            cout << "Erreur, nous sommes dans le case ERREUR du switch sur E0." << endl; 
+            cout << "Erreur, nous sommes dans le case ERREUR du switch sur E2." << endl; 
             cout << endl; 
             automate.dequeueAll();
             break; 
 
         default :
             cout << endl; 
-            cout << "Erreur, nous sommes dans le default du switch sur E0." << endl; 
+            cout << "Erreur, nous sommes dans le default du switch sur E2." << endl; 
             cout << endl; 
     }
 
@@ -159,7 +160,9 @@ bool E3 :: transition(Automate & automate, Symbole * s){
             break;
 
         case PLUS :
-           gauche = ((Entier*) automate.popSymbole());
+            cout<<endl;
+            
+            gauche = ((Entier*) automate.popSymbole());
             automate.reduction(1, new ExprConstante(gauche->getValue()));           
             break;
 
@@ -188,14 +191,14 @@ bool E3 :: transition(Automate & automate, Symbole * s){
 
         case ERREUR : 
             cout << endl; 
-            cout << "Erreur, nous sommes dans le case ERREUR du switch sur E0." << endl; 
+            cout << "Erreur, nous sommes dans le case ERREUR du switch sur E3." << endl; 
             cout << endl; 
             automate.dequeueAll();
             break; 
 
         default :
             cout << endl; 
-            cout << "Erreur, nous sommes dans le default du switch sur E0." << endl; 
+            cout << "Erreur, nous sommes dans le default du switch sur E3." << endl; 
             cout << endl; 
     }
     return false; 
@@ -206,6 +209,8 @@ E4 :: E4(): Etat("E4"){}
 bool E4 :: transition(Automate & automate, Symbole * s){
     switch(*s){
         case INT :
+         
+           
             automate.decalage(s, new E3);
             break;
 
@@ -235,14 +240,14 @@ bool E4 :: transition(Automate & automate, Symbole * s){
 
         case ERREUR : 
             cout << endl; 
-            cout << "Erreur, nous sommes dans le case ERREUR du switch sur E0." << endl; 
+            cout << "Erreur, nous sommes dans le case ERREUR du switch sur E4." << endl; 
             cout << endl; 
             automate.dequeueAll();
             break; 
 
         default :
             cout << endl; 
-            cout << "Erreur, nous sommes dans le default du switch sur E0." << endl; 
+            cout << "Erreur, nous sommes dans le default du switch sur E4." << endl; 
             cout << endl; 
     }
     return false; 
@@ -282,14 +287,14 @@ bool E5 :: transition(Automate & automate, Symbole * s){
 
         case ERREUR : 
             cout << endl; 
-            cout << "Erreur, nous sommes dans le case ERREUR du switch sur E0." << endl; 
+            cout << "Erreur, nous sommes dans le case ERREUR du switch sur E5." << endl; 
             cout << endl; 
             automate.dequeueAll();
             break; 
 
         default :
             cout << endl; 
-            cout << "Erreur, nous sommes dans le default du switch sur E0." << endl; 
+            cout << "Erreur, nous sommes dans le default du switch sur E5." << endl; 
             cout << endl; 
     }
     return false; 
@@ -329,14 +334,14 @@ bool E6 :: transition(Automate & automate, Symbole * s){
 
         case ERREUR : 
             cout << endl; 
-            cout << "Erreur, nous sommes dans le case ERREUR du switch sur E0." << endl; 
+            cout << "Erreur, nous sommes dans le case ERREUR du switch sur E6." << endl; 
             cout << endl; 
             automate.dequeueAll();
             break; 
 
         default :
             cout << endl; 
-            cout << "Erreur, nous sommes dans le default du switch sur E0." << endl; 
+            cout << "Erreur, nous sommes dans le default du switch sur E6." << endl; 
             cout << endl; 
     }
     return false; 
@@ -387,14 +392,14 @@ bool E7 :: transition(Automate & automate, Symbole * s){
 
         case ERREUR : 
             cout << endl; 
-            cout << "Erreur, nous sommes dans le case ERREUR du switch sur E0." << endl; 
+            cout << "Erreur, nous sommes dans le case ERREUR du switch sur E7." << endl; 
             cout << endl; 
             automate.dequeueAll();
             break; 
 
         default :
             cout << endl; 
-            cout << "Erreur, nous sommes dans le default du switch sur E0." << endl; 
+            cout << "Erreur, nous sommes dans le default du switch sur E7." << endl; 
             cout << endl; 
     }
     return false; 
@@ -448,14 +453,14 @@ bool E8 :: transition(Automate & automate, Symbole * s){
 
         case ERREUR : 
             cout << endl; 
-            cout << "Erreur, nous sommes dans le case ERREUR du switch sur E0." << endl; 
+            cout << "Erreur, nous sommes dans le case ERREUR du switch sur E8." << endl; 
             cout << endl; 
             automate.dequeueAll();
             break; 
 
         default :
             cout << endl; 
-            cout << "Erreur, nous sommes dans le default du switch sur E0." << endl; 
+            cout << "Erreur, nous sommes dans le default du switch sur E8." << endl; 
             cout << endl; 
     }
     return false; 
@@ -508,14 +513,14 @@ bool E9 :: transition(Automate & automate, Symbole * s){
 
         case ERREUR : 
             cout << endl; 
-            cout << "Erreur, nous sommes dans le case ERREUR du switch sur E0." << endl; 
+            cout << "Erreur, nous sommes dans le case ERREUR du switch sur E9." << endl; 
             cout << endl; 
             automate.dequeueAll();
             break; 
 
         default :
             cout << endl; 
-            cout << "Erreur, nous sommes dans le default du switch sur E0." << endl; 
+            cout << "Erreur, nous sommes dans le default du switch sur E9." << endl; 
             cout << endl; 
     }
     return false; 

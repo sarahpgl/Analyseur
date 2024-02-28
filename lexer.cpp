@@ -1,4 +1,5 @@
 #include "lexer.h"
+#include <iostream>
 
 Symbole * Lexer::Consulter() {
    if (!tampon) {
@@ -37,6 +38,7 @@ Symbole * Lexer::Consulter() {
                   tampon = new Entier(resultat);
                }
                else {
+                  cout<<"erreur tampon"<<endl;
                   tampon = new Symbole(ERREUR);
                }
          }

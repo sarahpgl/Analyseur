@@ -24,7 +24,7 @@ class ExprMult : public Expr {
 
 class ExprPlus : public Expr {
     public : 
-        ExprPlus(Expr* expr1, Expr* expr2) : exprGauche(expr1), exprDroite(expr2) {}
+        ExprPlus(Expr* expr1, Expr* expr2)  : exprGauche(expr1), exprDroite(expr2) {}
         virtual ~ExprPlus() {}
         double eval(){return ((exprGauche->eval())+(exprDroite->eval()));}
     protected :

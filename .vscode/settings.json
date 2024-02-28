@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "xstring": "cpp",
+        "iostream": "cpp"
+    },
+    "makefile.makefilePath": "C:\\Users\\sarah\\OneDrive\\Documents\\INSA\\4IF\\Grammaire et langage\\git\\Analyseur\\Makefile",
+    "makefile.makePath": "C:\\Users\\sarah\\OneDrive\\Documents\\mingw64\\bin\\mingw32-make",
+    "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools"
+}
