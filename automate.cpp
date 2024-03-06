@@ -77,7 +77,7 @@ void Automate::exec() {
 	
 	Symbole* s;
     bool fin = false;
-	while(this->isAccepted != true ) {
+	while(!isAccepted) {
 		s=lexer->Consulter();
 		cout<<"test current state " <<this->getCurrentState()->print()<<endl;
 		this->getCurrentState()->transition(*this, s);
