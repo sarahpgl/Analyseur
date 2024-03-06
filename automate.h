@@ -24,5 +24,6 @@ class Automate{
         stack <Etat*> statestack;
         stack <Symbole*> symbolstack; 
         Lexer * lexer;
+        bool isAccepted;
 
 };

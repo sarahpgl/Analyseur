@@ -5,6 +5,8 @@ using namespace std;
 Automate :: Automate(Lexer * l){
     lexer = l;
     statestack.push(new E0());  
+    isAccepted = false;
+
 }
 
 
@@ -61,7 +63,9 @@ void Automate :: popAndSupprSymbol(){
 }
 
 void Automate :: accepter(){
+    isAccepted= true;
     cout<<"Analyse finie."<<endl; 
+
 }
 
 Etat* Automate::getCurrentState() {
@@ -75,10 +79,10 @@ void Automate::exec() {
 	
 	Symbole* s;
     bool fin = false;
-	while(*(s=lexer->Consulter())!=FIN) {
-		
+	while(this->isAccepted != true ) {
+		s=lexer->Consulter();
 		cout<<"test current state " <<this->getCurrentState()->print()<<endl;
-		if(this->getCurrentState()->transition(*this, s)) { fin = true ;break; }
+		this->getCurrentState()->transition(*this, s);
 	}
 	cout << endl; cout << "Result : " << ((Entier*)symbolstack.top())->getValue() << endl; cout << endl; 
 }
