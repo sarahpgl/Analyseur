@@ -13,4 +13,3 @@ void Entier::Affiche() {
 int Entier::getValue(){
    return valeur; 
 }
-

@@ -12,8 +12,9 @@ Automate :: Automate(Lexer * l){
 void Automate :: decalage(Symbole * s, Etat * e){
     symbolstack.push(s);
     statestack.push(e);
-    lexer->Avancer();
-
+    if(s->isTerminal()) {
+        lexer->Avancer();
+    }
 }
 
 void Automate :: transitionSimple (Symbole * s, Etat * e){

@@ -5,7 +5,7 @@
 
 class Expr : public Symbole {
     public:
-        Expr():Symbole(EXPR){}
+        Expr():Symbole(EXPR, false){}
         virtual ~Expr(){}
         virtual double eval() = 0;
         void affiche();

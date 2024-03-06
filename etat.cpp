@@ -11,16 +11,16 @@ E0 :: E0(): Etat("E0"){}
 bool E0 :: transition(Automate & automate, Symbole * s){
     switch(*s){
         case INT :
-        cout<< "Etape 1 E0 int"<<endl;
+            cout<< "Etape 1 E0 int"<<endl;
             automate.decalage(s, new E3);
             break;
 
         case PLUS :
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case MULT :
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case OPENPAR :
@@ -29,16 +29,16 @@ bool E0 :: transition(Automate & automate, Symbole * s){
             break;
 
         case CLOSEPAR : 
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case FIN : 
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case EXPR : 
           
-           cout<<"3eme etape : E0 EXPR"<<endl;
+            cout<<"3eme etape : E0 EXPR"<<endl;
             automate.decalage(s, new E1);
             break;
 
@@ -62,7 +62,7 @@ E1 :: E1(): Etat("E1"){}
 bool E1 :: transition(Automate & automate, Symbole * s){
     switch(*s){
         case INT :
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case PLUS :
@@ -74,11 +74,11 @@ bool E1 :: transition(Automate & automate, Symbole * s){
             break;
 
         case OPENPAR :
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case CLOSEPAR : 
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case FIN : 
@@ -89,7 +89,7 @@ bool E1 :: transition(Automate & automate, Symbole * s){
             
 
         case EXPR : 
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case ERREUR : 
@@ -117,11 +117,11 @@ bool E2 :: transition(Automate & automate, Symbole * s){
             break;
 
         case PLUS :
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case MULT :
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case OPENPAR :
@@ -129,11 +129,11 @@ bool E2 :: transition(Automate & automate, Symbole * s){
             break;
 
         case CLOSEPAR : 
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case FIN : 
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case EXPR : 
@@ -162,7 +162,7 @@ bool E3 :: transition(Automate & automate, Symbole * s){
     Entier * gauche; 
     switch(*s){
         case INT :
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case PLUS :
@@ -179,7 +179,7 @@ bool E3 :: transition(Automate & automate, Symbole * s){
             break;
 
         case OPENPAR :
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case CLOSEPAR : 
@@ -193,7 +193,7 @@ bool E3 :: transition(Automate & automate, Symbole * s){
             break;
 
         case EXPR : 
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case ERREUR : 
@@ -222,11 +222,11 @@ bool E4 :: transition(Automate & automate, Symbole * s){
             break;
 
         case PLUS :
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case MULT :
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case OPENPAR :
@@ -234,11 +234,11 @@ bool E4 :: transition(Automate & automate, Symbole * s){
             break;
 
         case CLOSEPAR : 
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case FIN : 
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case EXPR : 
@@ -269,11 +269,11 @@ bool E5 :: transition(Automate & automate, Symbole * s){
             break;
 
         case PLUS :
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case MULT :
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case OPENPAR :
@@ -281,11 +281,11 @@ bool E5 :: transition(Automate & automate, Symbole * s){
             break;
 
         case CLOSEPAR : 
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case FIN : 
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case EXPR : 
@@ -312,7 +312,7 @@ E6 :: E6(): Etat("E6"){}
 bool E6 :: transition(Automate & automate, Symbole * s){
     switch(*s){
         case INT :
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case PLUS :
@@ -324,7 +324,7 @@ bool E6 :: transition(Automate & automate, Symbole * s){
             break;
 
         case OPENPAR :
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case CLOSEPAR : 
@@ -332,11 +332,11 @@ bool E6 :: transition(Automate & automate, Symbole * s){
             break;
 
         case FIN : 
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case EXPR : 
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case ERREUR : 
@@ -361,7 +361,7 @@ bool E7 :: transition(Automate & automate, Symbole * s){
     Expr* droite;
     switch(*s){
         case INT :
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case PLUS :
@@ -376,7 +376,7 @@ bool E7 :: transition(Automate & automate, Symbole * s){
             break;
 
         case OPENPAR :
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case CLOSEPAR : 
@@ -394,7 +394,7 @@ bool E7 :: transition(Automate & automate, Symbole * s){
             break;
 
         case EXPR : 
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case ERREUR : 
@@ -419,7 +419,7 @@ bool E8 :: transition(Automate & automate, Symbole * s){
     Expr* droite;
     switch(*s){
         case INT :
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case PLUS :
@@ -437,7 +437,7 @@ bool E8 :: transition(Automate & automate, Symbole * s){
             break;
 
         case OPENPAR :
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case CLOSEPAR : 
@@ -455,7 +455,7 @@ bool E8 :: transition(Automate & automate, Symbole * s){
             break;
 
         case EXPR : 
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case ERREUR : 
@@ -479,7 +479,7 @@ bool E9 :: transition(Automate & automate, Symbole * s){
     Entier * gauche;
     switch(*s){
         case INT :
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case PLUS :
@@ -497,7 +497,7 @@ bool E9 :: transition(Automate & automate, Symbole * s){
             break;
 
         case OPENPAR :
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case CLOSEPAR : 
@@ -515,7 +515,7 @@ bool E9 :: transition(Automate & automate, Symbole * s){
             break;
 
         case EXPR : 
-            transition(automate, new Symbole(ERREUR));
+            transition(automate, new Symbole(ERREUR, false));
             break;
 
         case ERREUR : 
