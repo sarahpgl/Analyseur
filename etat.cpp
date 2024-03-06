@@ -187,7 +187,7 @@ bool E3 :: transition(Automate & automate, Symbole * s){
             automate.reduction(1, new ExprConstante(gauche->getValue()));
             break;
 
-        case FIN : 
+        case FIN :
             gauche = ((Entier*) automate.popSymbole());
             automate.reduction(1, new ExprConstante(gauche->getValue()));
             break;
@@ -366,7 +366,7 @@ bool E7 :: transition(Automate & automate, Symbole * s){
             gauche = new ExprConstante(((Entier*) automate.popSymbole())->getValue());
             automate.popAndSupprSymbol(); 
             droite = new ExprConstante(((Entier*) automate.popSymbole())->getValue());
-            automate.reduction(3, new ExprPlus(gauche, droite));
+            automate.reduction(3, new ExprConstante((new ExprPlus(gauche, droite))->eval()));
             break;
 
         case MULT :
@@ -381,14 +381,14 @@ bool E7 :: transition(Automate & automate, Symbole * s){
             gauche = new ExprConstante(((Entier*) automate.popSymbole())->getValue());
             automate.popAndSupprSymbol(); 
             droite = new ExprConstante(((Entier*) automate.popSymbole())->getValue());
-            automate.reduction(3, new ExprPlus(gauche, droite));
+            automate.reduction(3, new ExprConstante((new ExprPlus(gauche, droite))->eval()));
             break;
 
-        case FIN : 
-            gauche = new ExprConstante(((Entier*) automate.popSymbole())->getValue());
-            automate.popAndSupprSymbol(); 
+        case FIN :
             droite = new ExprConstante(((Entier*) automate.popSymbole())->getValue());
-            automate.reduction(3, new ExprPlus(gauche, droite));
+            automate.popAndSupprSymbol();
+            gauche = new ExprConstante(((Entier*) automate.popSymbole())->getValue());
+            automate.reduction(3, new ExprConstante((new ExprPlus(gauche, droite))->eval()));
             break;
 
         case EXPR : 
@@ -424,14 +424,14 @@ bool E8 :: transition(Automate & automate, Symbole * s){
             gauche = new ExprConstante(((Entier*) automate.popSymbole())->getValue());
             automate.popAndSupprSymbol(); 
             droite = new ExprConstante(((Entier*) automate.popSymbole())->getValue());
-            automate.reduction(3, new ExprMult(gauche, droite));
+            automate.reduction(3, new ExprConstante((new ExprMult(gauche, droite))->eval()));
             break;
 
         case MULT :
             gauche = new ExprConstante(((Entier*) automate.popSymbole())->getValue());
             automate.popAndSupprSymbol(); 
             droite = new ExprConstante(((Entier*) automate.popSymbole())->getValue());
-            automate.reduction(3, new ExprMult(gauche, droite));
+            automate.reduction(3, new ExprConstante((new ExprMult(gauche, droite))->eval()));
             break;
 
         case OPENPAR :
@@ -442,14 +442,14 @@ bool E8 :: transition(Automate & automate, Symbole * s){
             gauche = new ExprConstante(((Entier*) automate.popSymbole())->getValue());
             automate.popAndSupprSymbol(); 
             droite = new ExprConstante(((Entier*) automate.popSymbole())->getValue());
-            automate.reduction(3, new ExprMult(gauche, droite));
+            automate.reduction(3, new ExprConstante((new ExprMult(gauche, droite))->eval()));
             break;
 
         case FIN : 
             gauche = new ExprConstante(((Entier*) automate.popSymbole())->getValue());
             automate.popAndSupprSymbol(); 
             droite = new ExprConstante(((Entier*) automate.popSymbole())->getValue());
-            automate.reduction(3, new ExprMult(gauche, droite));
+            automate.reduction(3, new ExprConstante((new ExprMult(gauche, droite))->eval()));
             break;
 
         case EXPR : 
