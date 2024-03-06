@@ -82,7 +82,7 @@ bool E1 :: transition(Automate & automate, Symbole * s){
             break;
 
         case FIN : 
-        cout<<endl;
+            cout<<endl;
             s->Affiche();
             automate.accepter();
             return true;
@@ -216,8 +216,6 @@ E4 :: E4(): Etat("E4"){}
 bool E4 :: transition(Automate & automate, Symbole * s){
     switch(*s){
         case INT :
-         
-           
             automate.decalage(s, new E3);
             break;
 

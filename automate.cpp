@@ -4,7 +4,8 @@ using namespace std;
 
 Automate :: Automate(Lexer * l){
     lexer = l;
-    statestack.push(new E0());  
+    statestack.push(new E0());
+    isAccepted = false;
 }
 
 
@@ -27,12 +28,12 @@ void Automate :: reduction(int n, Symbole * s){
     cout <<"reduction s =";
     s->Affiche();
     cout << endl;
+    // Pour le débug
     try{
         cout << "val = " << ((Entier*)s)->getValue() << endl;
     } catch (const std::exception& e) {
     }
 
-    cout<<endl;
     for(int i = 0; i<n; i++){
         delete(statestack.top());
         statestack.pop();
@@ -61,7 +62,8 @@ void Automate :: popAndSupprSymbol(){
 }
 
 void Automate :: accepter(){
-    cout<<"Analyse finie."<<endl; 
+    cout<<"Analyse finie."<<endl;
+    isAccepted = true;
 }
 
 Etat* Automate::getCurrentState() {
@@ -75,7 +77,7 @@ void Automate::exec() {
 	
 	Symbole* s;
     bool fin = false;
-	while(*(s=lexer->Consulter())!=FIN) {
+	while(*(s=lexer->Consulter())!=FIN && !isAccepted) {
 		
 		cout<<"test current state " <<this->getCurrentState()->print()<<endl;
 		if(this->getCurrentState()->transition(*this, s)) { fin = true ;break; }
