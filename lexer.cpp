@@ -3,8 +3,9 @@
 
 Symbole * Lexer::Consulter() {
    if (!tampon) {
-
+      
       if (tete==flux.length())
+
          tampon = new Symbole(FIN);
       else
       {
@@ -44,6 +45,10 @@ Symbole * Lexer::Consulter() {
          }
       }
    }
+
+   cout << "lexer tampon = ";
+    tampon->Affiche();
+    cout <<endl;
    return tampon;
 }
 

@@ -24,11 +24,16 @@ void Automate :: transitionSimple (Symbole * s, Etat * e){
 }
 
 void Automate :: reduction(int n, Symbole * s){
+   cout<<"reduction s =" ;
+   s->Affiche();
+    cout<<endl;
     for(int i = 0; i<n; i++){
         delete(statestack.top());
         statestack.pop();
     }
+    cout <<"Haut de la pile Etat"<< statestack.top()->print()<<endl;
     statestack.top()->transition(*this, s);
+    
 }
 
 void Automate :: dequeueAll(){
@@ -66,7 +71,7 @@ void Automate::exec() {
     bool fin = false;
 	while(*(s=lexer->Consulter())!=FIN) {
 		
-		
+		cout<<"test current state " <<this->getCurrentState()->print()<<endl;
 		if(this->getCurrentState()->transition(*this, s)) { fin = true ;break; }
 	}
 	cout << endl; cout << "Result : " << ((Entier*)symbolstack.top())->getValue() << endl; cout << endl; 

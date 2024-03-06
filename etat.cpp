@@ -11,6 +11,7 @@ E0 :: E0(): Etat("E0"){}
 bool E0 :: transition(Automate & automate, Symbole * s){
     switch(*s){
         case INT :
+        cout<< "Etape 1 E0 int"<<endl;
             automate.decalage(s, new E3);
             break;
 
@@ -23,6 +24,7 @@ bool E0 :: transition(Automate & automate, Symbole * s){
             break;
 
         case OPENPAR :
+            cout<<"etape 0 : E0 OPENPAR"<<endl;
             automate.decalage(s, new E2);
             break;
 
@@ -35,7 +37,8 @@ bool E0 :: transition(Automate & automate, Symbole * s){
             break;
 
         case EXPR : 
-           // cout<<automate.getCurrentSymbole()->Affiche();
+          
+           cout<<"3eme etape : E0 EXPR"<<endl;
             automate.decalage(s, new E1);
             break;
 
@@ -79,8 +82,11 @@ bool E1 :: transition(Automate & automate, Symbole * s){
             break;
 
         case FIN : 
+        cout<<endl;
+            s->Affiche();
             automate.accepter();
-            break;
+            return true;
+            
 
         case EXPR : 
             transition(automate, new Symbole(ERREUR));
@@ -160,10 +166,11 @@ bool E3 :: transition(Automate & automate, Symbole * s){
             break;
 
         case PLUS :
-            cout<<endl;
+            cout<<"2ème étape : E3 PLUS" <<endl;
             
             gauche = ((Entier*) automate.popSymbole());
-            automate.reduction(1, new ExprConstante(gauche->getValue()));           
+            automate.reduction(1, new ExprConstante(gauche->getValue()));     
+
             break;
 
         case MULT :
