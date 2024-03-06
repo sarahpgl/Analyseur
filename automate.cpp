@@ -5,7 +5,6 @@ using namespace std;
 Automate :: Automate(Lexer * l){
     lexer = l;
     statestack.push(new E0());  
-    symbolstack.push(new Symbole(0));
 }
 
 
@@ -24,14 +23,20 @@ void Automate :: transitionSimple (Symbole * s, Etat * e){
 }
 
 void Automate :: reduction(int n, Symbole * s){
-   cout<<"reduction s =" ;
-   s->Affiche();
+    cout <<"reduction s =";
+    s->Affiche();
+    cout << endl;
+    try{
+        cout << "val = " << ((Entier*)s)->getValue() << endl;
+    } catch (const std::exception& e) {
+    }
+
     cout<<endl;
     for(int i = 0; i<n; i++){
         delete(statestack.top());
         statestack.pop();
     }
-    cout <<"Haut de la pile Etat"<< statestack.top()->print()<<endl;
+    cout <<"Haut de la pile Etat : "<< statestack.top()->print()<<endl;
     statestack.top()->transition(*this, s);
     
 }
